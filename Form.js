@@ -18,6 +18,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column'
   },
   paper: {
+    minWidth: '300px',
     display: 'flex',
     flexDirection: 'column',
     margin: 10,
