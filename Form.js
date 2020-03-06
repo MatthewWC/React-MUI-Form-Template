@@ -56,6 +56,8 @@ function Form(props) {
     event.preventDefault()
     // reset error text
     errorRef.current.innerHTML = ''
+    let variables = {}
+    
     try{
       validator('Form Name Goes Here')
       // INSERT MUTATION LOGIC
