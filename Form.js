@@ -59,6 +59,23 @@ function Form(props) {
     try{
       validator('Form Name Goes Here')
       // INSERT MUTATION LOGIC
+      Object.keys(formRef.current).map(field => {
+        console.log(formRef.current[field].name)
+        switch(formRef.current[field].type){
+          case 'text':
+            return variables[formRef.current[field].name] = formRef.current[field].value
+          case 'password':
+            return variables[formRef.current[field].name] = formRef.current[field].value
+          case 'number': 
+            return variables[formRef.current[field].name] = parseFloat(formRef.current[field].value)
+          default:
+            return null
+        }
+      })
+      await props.client.mutate({
+        mutation: REGISTER,
+        variables: variables
+      })
     }
     catch(error){
       let errMsg
